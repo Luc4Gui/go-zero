@@ -62,6 +62,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: benchmark-result-target
+      
+      # ===================== 新增的调试步骤 =====================
+      - name: 'Debug: Display Raw Benchmark Files'
+        run: |
+          echo "--- Content of benchmark_result_parent.txt ---"
+          cat benchmark_result_parent.txt
+          echo "------------------------------------------------"
+          echo ""
+          echo "--- Content of benchmark_result_target.txt ---"
+          cat benchmark_result_target.txt
+          echo "------------------------------------------------"
+      # ==========================================================
 
       # 步骤 2.3: 安装 Go 官方的 benchstat 工具
       - name: 'Install benchstat'
